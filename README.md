@@ -15,3 +15,5 @@ This repository contains all the work completed throughout the “Programming Pr
 
 - **Désérialiser les données**  
   La désérialisation est l’opération inverse de la sérialisation : elle consiste à reconstruire des objets à partir d’un format stocké ou transmis.
+-**Interface**
+  Une interface définit un **contrat** entre différentes parties d’une application, permettant un **couplage faible**. Par exemple, dans une API REST, l’interface gère les méthodes et les paramètres pour générer et fournir les ressources attendues.

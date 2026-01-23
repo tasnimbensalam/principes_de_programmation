@@ -34,7 +34,7 @@ def get_student(student_id):
     if student:
         return jsonify(student)
     else:
-        return jsonify({'message':'Étudiant non trouvé'}),404
+        return jsonify({'message':'Etudiant non trouve'}),404
 
 #Mettre à jour un étudiant par son id
 @app.route('/students/<int:student_id>',methods=['PUT'])
@@ -45,8 +45,14 @@ def update_student(student_id):
         student.update(data)  #mettre à jour les informations de l'étudiant
         return jsonify(student)
     else:
-        return jsonify({'message':'Étudiant non trouvé'}),404
+        return jsonify({'message':'Etudiant non trouve'}),404
 
+#supprimer un étudiant par son id
+@app.route('/students/<int:student_id>',methods=['DELETE'])
+def delete_student(student_id):
+    global students
+    students=[s for s in students if s['id']!=student_id]
+    return jsonify({'message':'Etudiant supprime'})
 
 #racine de l'api
 @app.route('/')
