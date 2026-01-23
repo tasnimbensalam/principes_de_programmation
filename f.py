@@ -27,7 +27,25 @@ def add_student():
     students.append(new_student)   #ajouter le nouvel étudiant à la liste
     return jsonify(new_student),201  #retourner le nouvel étudiant avec code 201 (créé)
 
+#afficher un etudiant par son id
+@app.route('/students/<int:student_id>',methods=['GET'])    
+def get_student(student_id):
+    student=next((s for s in students if s['id']==student_id),None)
+    if student:
+        return jsonify(student)
+    else:
+        return jsonify({'message':'Étudiant non trouvé'}),404
 
+#Mettre à jour un étudiant par son id
+@app.route('/students/<int:student_id>',methods=['PUT'])
+def update_student(student_id):
+    student=next((s for s in students if s['id']==student_id),None)
+    if student:
+        data=request.get_json()
+        student.update(data)  #mettre à jour les informations de l'étudiant
+        return jsonify(student)
+    else:
+        return jsonify({'message':'Étudiant non trouvé'}),404
 
 
 #racine de l'api
