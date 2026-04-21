@@ -1,0 +1,19 @@
+body{
+    font-family: Arial,sans-serif;
+    background: color #db9c9c;
+    padding:20px;
+}
+
+h1{
+    color:#333;
+
+}
+
+ul{
+    background:white;
+    padding:15px
+}
+
+li{
+    margin-bottom:8px;
+}
